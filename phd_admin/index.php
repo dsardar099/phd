@@ -53,6 +53,7 @@
                     if($pass_verify){
                         $_SESSION['admin_name'] = $email_pass['name'];
                         $_SESSION['admin_db_id'] = $email_pass['id'];
+                        $_SESSION['type'] = "admin";
 
                         ?>
                         <script>

@@ -3,8 +3,8 @@
 
     
 
-    include('external_links.php');
-    include('db_file/db_conn.php');
+    include('../external_links.php');
+    include('../db_file/db_conn.php');
 ?>
 
 <!DOCTYPE html>
