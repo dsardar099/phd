@@ -18,8 +18,7 @@ if (isset($_SESSION['type'])){
     {
         $url="../signin.php";
     }
-    logout($url,$conn);
-    print_r($_SESSION);
+    logout($url,$con);
 }
 else{
     header("Location:../signin.php");

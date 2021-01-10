@@ -76,6 +76,7 @@
                     if($pass_verify){
                         $_SESSION['user_name'] = $userdata['name'];
                         $_SESSION['user_db_id'] = $userdata['id'];
+                        $_SESSION['type'] = "user";
 
                         ?>
                         <script>
