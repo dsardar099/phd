@@ -17,7 +17,9 @@ include('db_file/db_conn.php');
         .card-width {
             width: 100%;
         }
+
         @media (min-width: 768px) {
+
             /* For card in signup form */
             .card-width {
                 width: 50%;
@@ -170,14 +172,30 @@ include('db_file/db_conn.php');
 
                     $res = mysqli_query($con, $insert_query);
                     if ($res) {
+
+                        $q = "SELECT `id` FROM `userdata` WHERE email='$u_email'";
+                        $r = mysqli_query($con, $q);
+                        $d = mysqli_fetch_assoc($r);
+                        $id = $d['id'];
+
+                        $q1 = "INSERT INTO `user_balance`(`user_id`, `m_pl`, `t_pl`, `e_w`, `b_k`) VALUES ('$id',0,0,0,0)";
+                        $r1 = mysqli_query($con, $q1);
+                        if ($r1 == 1) {
                     ?>
-                        <script>
-                            alert('Account Created Succesfully');
-                            window.location.replace('signin.php');
-                        </script>
-                    <?php
+                            <script>
+                                alert('Account Created Succesfully');
+                                window.location.replace('signin.php');
+                            </script>
+                        <?php
+                        } else {
+                        ?>
+                            <script>
+                                alert('res1 Some problem occurred, please try again');
+                            </script>
+                        <?php
+                        }
                     } else {
-                    ?>
+                        ?>
                         <script>
                             alert('res Some problem occurred, please try again');
                         </script>
